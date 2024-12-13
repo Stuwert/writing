@@ -1,0 +1,37 @@
+# A basic request type for us to play around with
+type RequestSubmission {
+  id: ID!
+  note: String!
+  success: Boolean!
+}
+
+# The RequestResult input and output will mimic each other
+# so we have a consistent set of information to pass through our subscription
+input RequestResultInput {
+  id: ID!
+  note: String!
+  response: String!
+  processedOn: String!
+}
+
+type RequestResult {
+  id: ID!
+  note: String!
+  response: String!
+  processedOn: String!
+}
+
+type Mutation {
+  # What the client will hit to kick off the processing
+  submitRequestForProcessing(id: ID!, note: String!): RequestSubmission
+
+  # How the Lambda will communicate back
+  emitSuccessfulRequest(input: RequestResultInput): RequestResult!
+}
+
+type Subscription {
+  # Appsync will use the ID to filter out
+  onSuccessfulResult(id: ID!): RequestResult!
+  @aws_subscribe(mutations: ["emitSuccessfulRequest])
+  # This directive is what tells Appsync what to listen for to send information back to the user
+}
