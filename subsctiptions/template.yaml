@@ -1,0 +1,49 @@
+Resources:
+  RequestProcessor:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs20.x
+      CodeUri: ./lambda/processor.js
+  GraphqlApi:
+    Type: AWS::Serverless::GraphQLApi
+    Properties:
+      Name: test-api
+      Auth:
+      SchemaUri: schema.graphql
+      DataSource:
+      Functions:
+      Resolvers:
+
+  NoneTypeDataSource:
+    Type: AWS::AppSync::DataSource
+    Properties:
+      ApiId: !GetAtt GraphQLApi.ApiId
+      Type: NONE
+      Name: NoneTypeDataSource
+      Description: An empty data source. Used for subscription resolvers that do not require a data source.
+
+  OnSuccessfulResultResolver:
+    Type: AWS::AppSync::Resolver
+    Properties:
+      ApiId: !GetAtt GraphqlApi.ApiId
+      TypeName: Subscription
+      FieldName: onSuccessfulResult
+      Kind: UNIT
+      CodeS3Location: ./resolvers/onSuccessfulResult.js
+      DataSourceName: !GetAtt NoneTypeDataSource.Name
+      Runtime:
+        Name: APPSYNC_JS
+        RuntimeVersion: 1.0.0
+
+  EmitSuccessfulResultResolver:
+    Type: AWS::AppSync::Resolver
+    Properties:
+      ApiId: !GetAtt GraphqlApi.ApiId
+      TypeName: Mutation
+      FieldName: emitSuccessfulResult
+      Kind: UNIT
+      CodeS3Location: ./resolvers/emitSuccessfulResult.js
+      DataSourceName: !GetAtt NoneTypeDataSource.Name
+      Runtime:
+        Name: APPSYNC_JS
+        RuntimeVersion: 1.0.0
