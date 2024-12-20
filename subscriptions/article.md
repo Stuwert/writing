@@ -135,6 +135,17 @@ Resources:
 
 ```
 
+## Next Steps:
+
+- Update lambda function with actual request code
+- Add Api Url to lambda env
+- Update the resolver code
+- Add resolver code with the IAM checking
+- Create resolver role
+- Add the appropriate decorators to the graphql for IAM authentication
+
+## Resources
+
 ## Questions for me:
 
 - Do you need to do resolver level validation for an IAM role?

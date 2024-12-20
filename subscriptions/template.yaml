@@ -1,18 +1,47 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform:
+  - AWS::Serverless-2016-10-31
+Description: >
+  Appsync api example for subscription based communication
+
 Resources:
   RequestProcessor:
     Type: AWS::Serverless::Function
     Properties:
       Runtime: nodejs20.x
-      CodeUri: ./lambda/processor.js
+      CodeUri: ./lambda
+      Handler: processor.handler
   GraphqlApi:
     Type: AWS::Serverless::GraphQLApi
     Properties:
       Name: test-api
       Auth:
+        Type: API_KEY
+        Additional:
+          - Type: AWS_IAM
       SchemaUri: schema.graphql
-      DataSource:
+      DataSources:
+        Lambda:
+          RequestProcessor:
+            Name: RequestProcessor
+            FunctionArn: !GetAtt RequestProcessor.Arn
+            ServiceRoleArn: !GetAtt RequestProcessorRole.Arn
+            Description: "Example processor Lambda"
       Functions:
+        processLambda:
+          Runtime:
+            Name: APPSYNC_JS
+            Version: 1.0.0
+          CodeUri: ./resolvers/submitRequestForProcessing.js
+          DataSource: RequestProcessor
       Resolvers:
+        Mutation:
+          submitForProcessing:
+            Runtime:
+              Name: APPSYNC_JS
+              Version: 1.0.0
+            Pipeline:
+              - processLambda
 
   NoneTypeDataSource:
     Type: AWS::AppSync::DataSource

@@ -32,6 +32,6 @@ type Mutation {
 type Subscription {
   # Appsync will use the ID to filter out
   onSuccessfulResult(id: ID!): RequestResult!
-  @aws_subscribe(mutations: ["emitSuccessfulRequest])
+    @aws_subscribe(mutations: ["emitSuccessfulRequest"])
   # This directive is what tells Appsync what to listen for to send information back to the user
 }
