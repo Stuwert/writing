@@ -16,7 +16,7 @@ I also kinda realized that if folks got to pick both of the cards they put down 
 
 ## The Evolution
 
-From there, I realized the answer was always in front of me. Given that I wanted the design of these to feel a bit "gamblingy" and blacjacky, what if the second round was just straight up blackjack? 
+From there, I realized the answer was always in front of me. Given that I wanted the design of these to feel a bit "gamblingy" and blackjacky, what if the second round was just straight up blackjack? 
 
 So that led to a new set of rules. Shuffle up your small deck (15 cards?), and draw three. Then pick one card to put face down, and draw one card off the top of the deck (without revealing it). The first cards are straight up Rock Paper Scissors. Whoever has the better card wins. The second round is blackjack. Whoever has the higher number without going over 21 wins. 
 
@@ -33,9 +33,11 @@ This also created some fun play, where the losing player gets to choose to ante 
 
 This I stole from Gambrinous Games' Cardpocalypse, which had all of the vibes of trading cards as a kid but with the added fun that you get to modify the cards in front of you. I figured it would be fun to add in some new ideas to switch up the gameplay. 
 
+http://gambrinous.com/
+
 - Forcing your opponent to flip over another card
 - Getting to flip over another card for yourself
 - Modifying the numbers on your card
-- 
+
 
 There's also another little unintentional twist that I was gifted. Because these are playing cards, you get to have different modifiers for the top versus the bottom.
