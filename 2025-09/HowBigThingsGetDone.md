@@ -1,6 +1,8 @@
 # Unaccountability and Big Things Getting Done
 
-Unexpectedly two of my favorite books in the last year are _How Big Things Get Done_ and _The Unaccountability Machine_. You wouldn't really think that these concepts relate to each other all that strongly. But they do. 
+Unexpectedly two of my favorite books in the last year are _How Big Things Get Done_ and _The Unaccountability Machine_. You wouldn't really think they relate to one another. _How Big Things Get Done_ is a book about why and how big projects happen and _The Unaccountability Machine_ is a scathing look at why the world feels so crappy because of the way businesses and governments are set up. But both books are about systemic capacity and measurement. And both books care deeply about seeing systems not as a grouping of interchangeable parts but as a representation of processes that can not simply be decomposed without cost. 
+
+Honestly you should stop reading this summary and read both of them. They are absolutely worth the read and will hopefully change the way you think about building and delivering projects. But I want to highlight a few of the big takeaways that I most appreciated. 
 
 They're both about the way that institutional knowledge isn't just built within a person, but within the systems that person is a part of, and that how work gets done is a key determinant to what actually gets accomplished. 
 
